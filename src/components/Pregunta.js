@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-
+import Error from './Error';
 
 
 const Pregunta = () => {
@@ -17,7 +17,7 @@ const Pregunta = () => {
         e.preventDefault();
 
         //Validar
-        if (cantidad < 1 || isNaN( cantidad )) {
+        if (cantidad < 1 || isNaN(cantidad) ) {
             guardarError(true);
             return;
         }
@@ -28,7 +28,8 @@ const Pregunta = () => {
     return ( 
         <Fragment>
             <h2>Presupuesto</h2>
-            {error ? : null}
+            {error ? <Error mensaje="Presupuesto Incorrecto" /> : null}
+
             <form
                 onSubmit={agregarPresupuesto}
             >
