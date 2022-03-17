@@ -1,8 +1,29 @@
 import React, { useState } from 'react';
 
 const Formulario = () => {
+
+    const [nombre, guardarNombre] = useState('');
+    const [cantidad, guardarCantidad] = useState(0);
+
+    //cuando el usuario agrega un gasto
+    const agregarGasto = e => {
+        e.preventDefault();
+
+        //validar
+
+        //construir gasto
+
+
+        //pasaar gasto al componente ppal
+
+
+        //resetear el form
+    }
+
     return ( 
-        <form>
+        <form
+            onSubmit={agregarGasto}
+        >
             <h2>Agrega tus gastos</h2>
 
             <div className='campo'>
@@ -11,6 +32,8 @@ const Formulario = () => {
                     type='text'
                     classname='u-full-width'
                     placeholder='Ej. Compra'
+                    value={nombre}
+                    onChange={e => guardarNombre(e.target.value)}
                 />
             </div>
 
@@ -20,6 +43,8 @@ const Formulario = () => {
                     type='number'
                     classname='u-full-width'
                     placeholder='Ej. 500'
+                    value={cantidad}
+                    onChange={ e => guardarCantidad( parseInt (e.target.value,10) )}
                 />
             </div>
 
