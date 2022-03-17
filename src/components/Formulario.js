@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import Error from './Error';
+import shortid from 'shortid';
+
+
 const Formulario = () => {
 
     const [nombre, guardarNombre] = useState('');
@@ -18,7 +21,13 @@ const Formulario = () => {
 
         guardarError(false);
         //construir gasto
+        const gasto = {
+            nombre,
+            cantidad,
+            id: shortid.generate()
+        }
 
+        console.log(gasto);
 
         //pasaar gasto al componente ppal
 
@@ -36,7 +45,7 @@ const Formulario = () => {
                 <label>Nombre Gasto</label>
                 <input
                     type='text'
-                    classname='u-full-width'
+                    className='u-full-width'
                     placeholder='Ej. Compra'
                     value={nombre}
                     onChange={e => guardarNombre(e.target.value)}
@@ -47,7 +56,7 @@ const Formulario = () => {
                 <label>Cantidad Gasto</label>
                 <input
                     type='number'
-                    classname='u-full-width'
+                    className='u-full-width'
                     placeholder='Ej. 500'
                     value={cantidad}
                     onChange={ e => guardarCantidad( parseInt (e.target.value,10) )}
