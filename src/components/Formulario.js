@@ -3,7 +3,7 @@ import Error from './Error';
 import shortid from 'shortid';
 
 
-const Formulario = () => {
+const Formulario = ({agregaNuevoGasto}) => {
 
     const [nombre, guardarNombre] = useState('');
     const [cantidad, guardarCantidad] = useState(0);
@@ -27,12 +27,12 @@ const Formulario = () => {
             id: shortid.generate()
         }
 
-        console.log(gasto);
-
         //pasaar gasto al componente ppal
-
+        agregaNuevoGasto(gasto);
 
         //resetear el form
+        guardarNombre('');
+        guardarCantidad(0);
     }
 
     return ( 
